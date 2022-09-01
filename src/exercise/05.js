@@ -14,16 +14,84 @@ import '../box-styles.css'
 // 🐨 also use the style prop to make the font italic
 // 💰 Here are available style attributes: backgroundColor, fontStyle
 
-const smallBox = <div>small lightblue box</div>
-const mediumBox = <div>medium pink box</div>
-const largeBox = <div>large orange box</div>
+const smallBox = (
+  <div
+    style={{
+      backgroundColor: 'lightblue',
+      fontStyle: 'italic',
+    }}
+    className="box--small"
+  >
+    small lightblue box
+  </div>
+)
+const mediumBox = (
+  <div
+    style={{backgroundColor: 'pink', fontStyle: 'italic'}}
+    className="box--medium"
+  >
+    medium pink box
+  </div>
+)
+const largeBox = (
+  <div
+    style={{backgroundColor: 'orange', fontStyle: 'italic'}}
+    className="box--large"
+  >
+    large orange box
+  </div>
+)
+
+// const Box = ({className, style, children}) => (
+//   <div style={style} className={className}>
+//     {children}
+//   </div>
+// )
+const Box = ({size, style, children}) => (
+  <div style={style} className={`box box--${size}`}>
+    {children}
+  </div>
+)
 
 function App() {
   return (
     <div>
-      {smallBox}
+      {/* {smallBox}
       {mediumBox}
-      {largeBox}
+      {largeBox} */}
+      {/* <Box
+        className="box--small"
+        style={{backgroundColor: 'lightblue', fontStyle: 'italic'}}
+      >
+        small lightblue box
+      </Box>
+      <Box
+        className="box--medium"
+        style={{backgroundColor: 'pink', fontStyle: 'italic'}}
+      >
+        medium pink box
+      </Box>
+      <Box
+        className="box--large"
+        style={{backgroundColor: 'orange', fontStyle: 'italic'}}
+      >
+        large orange box
+      </Box> */}
+      <Box
+        size="small"
+        style={{backgroundColor: 'lightblue', fontStyle: 'italic'}}
+      >
+        small lightblue box
+      </Box>
+      <Box size="medium" style={{backgroundColor: 'pink', fontStyle: 'italic'}}>
+        medium pink box
+      </Box>
+      <Box
+        size="large"
+        style={{backgroundColor: 'orange', fontStyle: 'italic'}}
+      >
+        large orange box
+      </Box>
     </div>
   )
 }
